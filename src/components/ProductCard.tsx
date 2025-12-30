@@ -1,4 +1,7 @@
-import Link from "next/link";
+"use client";
+
+
+import { useCart } from "@/contexts/CartContext";
 
 
 type Product = {
@@ -14,7 +17,8 @@ type props = {
 
 
 export default function ProductCard({ product }: props) {
-  return (
+    const { addToCart } = useCart();
+    return (
     <div style={{ 
             border: "1px solid #ccc", 
             borderRadius: "8px",
@@ -24,6 +28,17 @@ export default function ProductCard({ product }: props) {
         >
         <h3>{product.name}</h3>
         <p>R$ {product.price.toFixed(2)}</p>
+        <button
+            onClick={() => addToCart(product)}
+            style={{
+                marginTop: "10px",
+                padding: "6px 10px",
+                cursor: "pointer",
+            }}
+            >
+            Adicionar ao carrinho
+        
+        </button>
     </div>
   );
 }

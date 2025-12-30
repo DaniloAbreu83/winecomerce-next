@@ -24,6 +24,7 @@ export default function RootLayout({
             <Link href="/red">Red</Link>
             <Link href="/white">White</Link>
             <Link href="/rose">Rosé</Link>
+            <Link href="/cart">Carrinho</Link>
           </nav>
 
           {/* PÁGINAS */}

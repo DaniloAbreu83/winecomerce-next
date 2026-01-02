@@ -1,6 +1,6 @@
 import "./globals.css";
-import Link from "next/link";
 import { CartProvider } from "@/contexts/CartContext";
+import Navbar from "@/components/Navbar";
 
 export default function RootLayout({
   children,
@@ -11,28 +11,10 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body>
         <CartProvider>
-          {/* NAVBAR */}
-          <nav
-            style={{
-              padding: "16px",
-              borderBottom: "1px solid #ddd",
-              display: "flex",
-              gap: "20px",
-            }}
-          >
-            <Link href="/">Home</Link>
-            <Link href="/red">Red</Link>
-            <Link href="/white">White</Link>
-            <Link href="/rose">Rosé</Link>
-            <Link href="/cart">Carrinho</Link>
-          </nav>
-
-          {/* PÁGINAS */}
+          <Navbar />
           {children}
         </CartProvider>
       </body>
     </html>
   );
 }
-
-

@@ -1,29 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ProductCard from "../components/ProductCard";
-
-
-type Product = {
-  id: number;  
-  name: string;
-  price: number;
-};
-
+import { supabase } from "@/lib/supabaseClient";
+import ProductCard from "@/components/ProductCard";
+import { Product } from "@/types/product";
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
 
   async function fetchProducts() {
-    // Simulando uma chamada de API
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-      
-    const data: Product[] = [
-    { id: 1, name: "Vinho Tinto Reserva", price: 89.9 },
-    { id: 2, name: "Vinho Branco Seco", price: 74.5 },
-    { id: 3, name: "Vinho Rosé", price: 69.9 },
-  ];
-    setProducts(data);
+    const { data, error } = await supabase
+      .from("wines")
+      .select("*");
+
+    if (error) {
+      console.error("Erro ao buscar vinhos:", error);
+    } else {
+      console.log(data)
+      setProducts(data);
+    }
   }
 
   useEffect(() => {
@@ -31,21 +26,21 @@ export default function Home() {
   }, []);
 
   return (
-    <main style={{ padding: "20px" }}>
-      <h1>🍷 WineCommerce</h1>
-      <p>Seu e-commerce de vinhos especiais</p>
+    <main className="px-10 py-16">
+      <h1 className="text-4xl font-bold mb-10 text-center text-red-600">
+        Nossos Vinhos
+      </h1>
 
-      <section>
-        <h2>Vinhos em destaque</h2>
-
+      <div className="grid md:grid-cols-3 gap-8">
         {products.map((product) => (
-          <ProductCard 
-            key={product.id} 
-            product={product}          
+          <ProductCard
+            key={product.id}
+            product={product}
           />
         ))}
-        
-      </section>
+      </div>
     </main>
   );
 }
+
+

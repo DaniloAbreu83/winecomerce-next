@@ -1,7 +1,8 @@
 "use client";
 
 import { Product } from "@/types/product";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+
 
 export type CartItem = Product & {
   quantity: number;
@@ -13,12 +14,27 @@ type CartContextType = {
   removeFromCart: (productId: string) => void;
   increaseQuantity: (productId: string) => void;
   decreaseQuantity: (productId: string) => void;
+  isHydrated?: boolean;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("wine-cart");
+      return saved ? JSON.parse(saved) : [];
+  }
+  return [];
+});
+
+
+const [isHydrated, setIsHydrated] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("wine-cart", JSON.stringify(cart));
+  }, [cart]);
+
 
   function addToCart(product: Product) {
     setCart((prev) => {
@@ -61,6 +77,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         .filter((item) => item.quantity > 0)
     );
   }
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
 
   return (
     <CartContext.Provider
@@ -70,6 +89,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         removeFromCart,
         increaseQuantity,
         decreaseQuantity,
+        isHydrated,
       }}
     >
       {children}

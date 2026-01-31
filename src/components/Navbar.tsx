@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useCart } from "@/contexts/CartContext";
 
 export default function Navbar() {
-  const { cart } = useCart();
+  const { cart, isHydrated } = useCart();
 
   return (
     <nav className="flex items-center gap-6 px-6 py-4 border-b border-gray-300">
@@ -31,9 +31,11 @@ export default function Navbar() {
           className="flex items-center gap-2 font-semibold hover:text-red-600"
         >
           🛒 Carrinho
-          <span className="bg-red-600 text-white text-sm px-2 py-1 rounded-full">
-            {cart.length}
-          </span>
+          {isHydrated && (
+            <span className="bg-red-600 text-white text-sm px-2 py-1 rounded-full">
+              {cart.length}
+            </span>
+          )}
         </Link>
       </div>
     </nav>

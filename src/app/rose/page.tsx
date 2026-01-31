@@ -5,14 +5,14 @@ import Link from "next/link";
 export default function RosePage() {
     const products = [
         {
-      id: "1",
+      id: "4",
       name: "Port Da Luz Rosé",
       price: 899.99,
       image_url: "https://ousobkdlgxyowzipmxab.supabase.co/storage/v1/object/public/wines/image-wine-da-luz.png",
       description: "Vinho rosé elegante, refrescante e aromático.",
     },
     {
-      id: "2",
+      id: "5",
       name: "Fresh Rosé",
       price: 749.99,
       image_url: "https://ousobkdlgxyowzipmxab.supabase.co/storage/v1/object/public/wines/image-wine-fresh-rose.png",

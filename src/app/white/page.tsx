@@ -5,14 +5,14 @@ import Link from "next/link";
 export default function WhitePage() {
     const products = [
         {
-            id: "1",
+            id: "6",
             name: "Port Wine White",
             price: 899.99,
             image_url: "https://ousobkdlgxyowzipmxab.supabase.co/storage/v1/object/public/wines/img_page_white-removebg-preview.png",
             description: "Vinho branco elegante, refrescante e aromático.",
         },
         {
-            id: "2",
+            id: "7",
             name: "PS White",
             price: 899.99,
             image_url: "https://ousobkdlgxyowzipmxab.supabase.co/storage/v1/object/public/wines/img_page_white3-removebg-preview.png",

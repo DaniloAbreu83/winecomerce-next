@@ -4,9 +4,21 @@ import Link from "next/link";
 
 export default function WhitePage() {
     const products = [
-        { id: 1, name: "White Wine Alesia", price: 899.99 },
-        { id: 2, name: "Fresh White", price: 749.99 },
-    ];
+        {
+            id: "1",
+            name: "Port Wine White",
+            price: 899.99,
+            image_url: "https://ousobkdlgxyowzipmxab.supabase.co/storage/v1/object/public/wines/img_page_white-removebg-preview.png",
+            description: "Vinho branco elegante, refrescante e aromático.",
+        },
+        {
+            id: "2",
+            name: "PS White",
+            price: 899.99,
+            image_url: "https://ousobkdlgxyowzipmxab.supabase.co/storage/v1/object/public/wines/img_page_white3-removebg-preview.png",
+            description: "Vinho branco seco, com notas de frutas cítricas.",
+        },
+    ]
 
 
   return (

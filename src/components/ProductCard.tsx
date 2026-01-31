@@ -24,7 +24,7 @@ export default function ProductCard({ product }: Props) {
     <img
       src={product.image_url}
       alt={product.name}
-      className="w-full h-48 object-cover rounded-md mb-3"
+      className="w-full object-contain rounded-md mb-3"
     />
 
     <h3 className="text-lg font-semibold mb-2">

@@ -4,9 +4,28 @@ import Link from "next/link";
 
 export default function RedWinePage() {
     const products = [
-        { id: 1, name: "Red Wine Alesia", price: 899.99 },
-        { id: 2, name: "Lanarche", price: 749.99 },
-        { id: 3, name: "Vitalo Vermelho", price: 699.99 },
+        {
+            id: "1",
+            name: "Red Wine Alesia",
+            price: 899.99,
+            image_url: "https://ousobkdlgxyowzipmxab.supabase.co/storage/v1/object/public/wines/image-wine-red-alesia.png",
+            description: "Vinho tinto suave, com notas de frutas vermelhas.",
+        },
+        {
+            id: "2",
+            name: "Vitalo Vermelho",
+            price: 749.99,
+            image_url: "https://ousobkdlgxyowzipmxab.supabase.co/storage/v1/object/public/wines/image-wine-red-vitalo.png",
+            description: "Vinho tinto encorpado, perfeito para acompanhar carnes.",
+        },
+        {
+            id: "3",
+            name: "Red Larnache",
+            price: 699.99,
+            image_url: "https://ousobkdlgxyowzipmxab.supabase.co/storage/v1/object/public/wines/image-wine-red-larnache.png",
+            description: "Vinho tinto robusto, com sabor intenso e duradouro.",
+        },
+       
     ];
 
 

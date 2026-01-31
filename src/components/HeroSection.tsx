@@ -5,7 +5,7 @@ type Props = {
 export default function HeroSection({ backgroundImage }: Props) {
   return (
     <section
-      className="h-screen flex items-center justify-center bg-cover bg-center text-center px-6"
+      className="h-[55vh] md:h-[65vh] h-screen flex items-center justify-center bg-cover bg-center text-center px-6"
       style={{
         backgroundImage: `url(${backgroundImage})`,
       }}

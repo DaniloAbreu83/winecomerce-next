@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { Product } from "@/types/product";
 
-import Header from "@/components/Header";
+
 import HeroSection from "@/components/HeroSection";
 import WineCarousel from "@/components/WineCarousel";
 import ProductCard from "@/components/ProductCard";
+import Footer from "@/components/Footer";
+
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -30,7 +32,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      <Header />
+     
 
       <HeroSection 
         backgroundImage="https://ousobkdlgxyowzipmxab.supabase.co/storage/v1/object/public/wines/bg3.jpg"
@@ -52,6 +54,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

@@ -9,7 +9,7 @@ export default function RedWinePage() {
             name: "Red Wine Alesia",
             price: 899.99,
             image_url: "https://ousobkdlgxyowzipmxab.supabase.co/storage/v1/object/public/wines/image-wine-red-alesia.png",
-            description: "Vinho tinto suave, com notas de frutas vermelhas.",
+            description: "Vinho tinto com um toque suave, com notas de frutas vermelhas.",
         },
         {
             id: "2",

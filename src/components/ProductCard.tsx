@@ -36,7 +36,7 @@ export default function ProductCard({ product }: Props) {
     </p>
 
     <p className="text-red-600 font-bold mb-3">
-      R$ {product.price.toFixed(2)}
+      R$ {Number(product.price ?? 0).toFixed(2)}
     </p>
 
     <button

@@ -11,9 +11,9 @@ export type CartItem = Product & {
 type CartContextType = {
   cart: CartItem[];
   addToCart: (product: Product) => void;
-  removeFromCart: (productId: number) => void;
-  increaseQuantity: (productId: number) => void;
-  decreaseQuantity: (productId: number) => void;
+  removeFromCart: (productId: string) => void;
+  increaseQuantity: (productId: string) => void;
+  decreaseQuantity: (productId: string) => void;
   isHydrated?: boolean;
 };
 
@@ -52,11 +52,11 @@ const [isHydrated, setIsHydrated] = useState(false);
     });
   }
 
-  function removeFromCart(productId: number) {
+  function removeFromCart(productId: string) {
     setCart((prev) => prev.filter((item) => item.id !== productId));
   }
 
-  function increaseQuantity(productId: number) {
+  function increaseQuantity(productId: string) {
     setCart((prev) =>
       prev.map((item) =>
         item.id === productId
@@ -66,7 +66,7 @@ const [isHydrated, setIsHydrated] = useState(false);
     );
   }
 
-  function decreaseQuantity(productId: number) {
+  function decreaseQuantity(productId: string) {
     setCart((prev) =>
       prev
         .map((item) =>

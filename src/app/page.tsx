@@ -40,7 +40,7 @@ export default function Home() {
 
       <WineCarousel />
 
-      {/*}
+      {/*
       <section className="px-10 pb-20">
         <h3 className="text-3xl font-bold mb-10 text-center text-red-600">
           Nossos Vinhos

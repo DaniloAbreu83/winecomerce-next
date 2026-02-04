@@ -12,7 +12,7 @@ export default function CartPage() {
 
   // ✅ TOTAL CORRETAMENTE CALCULADO
   const total = cart.reduce(
-    (acc, item) => acc + item.price * item.quantity,
+    (acc, item) => acc + Number(item.price || 0) * item.quantity,
     0
   );
 
@@ -40,7 +40,7 @@ export default function CartPage() {
                   <div>
                     <h2 className="font-semibold">{item.name}</h2>
                     <p className="text-gray-500">
-                      R$ {item.price.toFixed(2)}
+                      R$ {Number(item.price || 0).toFixed(2)}
                     </p>
                   </div>
                 </div>
